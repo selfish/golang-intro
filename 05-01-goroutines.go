@@ -7,12 +7,13 @@ import (
 
 // Starting multiple goroutines.
 func main() {
+	defer fmt.Println("Main function ends.")
 	go printNumbers("Routine1")
 	go printNumbers("Routine2")
 
 	// Give goroutines time to finish (quick hack for demo).
+	// Corrrect approach is to use sync.WaitGroup
 	time.Sleep(1 * time.Second)
-	fmt.Println("Main function ends.")
 }
 
 func printNumbers(label string) {
